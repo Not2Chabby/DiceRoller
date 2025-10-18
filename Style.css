@@ -1,0 +1,188 @@
+body {
+	perspective: 400px;
+	perspective-origin: 300px 300px;
+
+}
+
+/*img {
+width: 100%;
+}*/
+
+img {
+	margin: 0px;
+	margin-top:2px;
+	margin-left: 2px;
+	display: inline-block;
+}
+
+#canvas {
+	display: inline-block;
+	position: relative;
+	top:50px;
+	left:50px;
+	/*padding-left:-50px;*/
+	width: 400px;
+	height: 400px;
+	background-image: linear-gradient(to bottom right,#99b898,#ff847c);
+	border: solid 7px #2a363b;
+	border-radius: 20px;
+	animation-fill-mode: forwards;
+	animation: gradient 2s ease-in-out;
+}
+
+.animate {
+	animation-fill-mode: forwards;
+	animation: diceRoller 1s ease-in-out;
+}
+
+.nonAnimate {
+
+}
+
+#dice {
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 150px;
+	left: 50px;
+	width: 400px;
+	height: 400px;
+	font-size: 0px;
+	transform-origin: 0px 0px;
+
+}
+
+.face {
+	position: relative;
+	display: inline-block;
+	margin: 0px;
+	width: 96px;
+	height: 96px;
+	border: solid 2px #ff847c;
+	background-color: #feceab;
+	/*opacity: .85;*/
+}
+
+.faceHolder {
+	border: dashed 2px black;
+	height: 92px;
+	width: 92px;
+	border-radius: 5%;
+}
+
+#rightSide {
+	transform-origin: left;
+	transform: rotateY(-90deg) translateX(-100px);
+}
+
+#leftSide {
+	transform-origin: right;
+	transform: rotateY(90deg) translateX(100px);
+}
+
+#topSide {
+	transform-origin: top;
+	transform: rotateX(90deg) translateY(-100px) translateX(-200px);
+}
+
+#bottomSide {
+	transform-origin: bottom;
+	transform: rotateX(270deg) translate3d(100px, 100px, -100px);
+}
+
+#bottomBack {
+	transform: translateZ(-100px) translateY(-100px);
+}
+
+/*#dice:hover {
+	transform: rotateY(45deg) rotateZ(45deg);
+
+}*/
+
+@keyframes diceRoller {
+	0% {
+		transform: rotateY(0deg) rotateZ(0deg);
+	}
+
+	5% {
+		transform-origin: 15px 25px;
+		transform: rotateX(-11.25deg) rotateY(22.5deg) rotateZ(22.5deg);
+	}
+	
+
+	10% {
+		transform-origin: 25px 50px;
+		transform: rotateX(-45deg) rotateY(45deg) rotateZ(45deg);
+	}
+
+	20% {
+		transform-origin: 50px 75px;
+		transform: rotateX(-90deg) rotateY(67.5deg) rotateZ(67.5deg);
+	}
+
+	30% {
+		transform-origin: 130px 80px;
+		transform: rotateX(-180deg) rotateY(90deg) rotateZ(90deg);
+	}
+
+	40% {
+		transform: rotateX(-270deg) rotateY(135deg) rotateZ(135deg);
+	}
+
+	50% {
+		transform: rotateX(-360deg) rotateY(205deg) rotateZ(205deg);
+	}
+
+	60% {
+		transform: rotateX(-270deg) rotateY(135deg) rotateZ(250deg);
+		
+	}
+
+	70% {
+		transform: rotateX(-180deg) rotateY(90deg) rotateZ(295deg);
+	}
+
+	80% {
+		transform: rotateX(-90deg) rotateY(67.5deg) rotateZ(315deg);
+		transform-origin: 150px 100px;
+	}
+
+	90% {
+		transform: rotateX(-45deg) rotateY(45deg) rotateZ(335deg);
+	}
+
+	90% {
+		transform: rotateX(-22.5deg) rotateY(22.5deg) rotateZ(335deg);
+	}
+
+
+	100% {
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
+	}
+}
+
+button {
+	display: inline-block;
+	position: relative;
+	top: 100px;
+	left: -370px;
+	height: 40px;
+	width: 200px;
+	margin-right: 15px;
+	font-family: Microgram DB, Microgram-Regular, Microgram DB Regular;
+	/*background-image: linear-gradient(to bottom right,#99b898,#ff847c);*/
+	border: solid 7px #2a363b;
+	border-radius: 20px;
+}
+
+
+/* Colors
+
+-99b898 green
+-feceab yellow
+-ff847c orange
+-e84a5f red
+-2a363b black
+
+#99b898,#ff847c
+
+*/

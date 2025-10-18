@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Dice Roller</title>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+	<!--<script type="text/javascript" src="thisJs.js" async>
+	</script>-->
+
+</head>
+
+<body>
+<div id="canvas">
+	<div id="dice"><!-- class="animate" -->
+		<div class="face" id="leftSide">
+			<img src="Faces/one.gif"></img>	
+		</div>
+
+		<div class="face" id="frontSide">
+			<img src="Faces/five.gif"></img>
+		</div>
+		<div class="face" id="rightSide">
+			<img src="Faces/six.gif"></img>			
+		</div>
+		<div class="face" id="topSide">
+			<img src="Faces/four.gif"></img>			
+		</div>
+		<div class="face" id="bottomSide">
+			<img src="Faces/three.gif"></img>
+		</div>
+		<div class="face" id="bottomBack">
+			<img src="Faces/two.gif"></img>
+		</div>
+	</div>
+
+</div>
+<button id="roll" onclick="roll()">Give me a Roll</button>
+<!--<button id="roll" onclick="rollReset()">Reset</button>-->
+
+	<script>
+		let faceArray = ["Faces/six.gif","Faces/five.gif","Faces/four.gif", "Faces/three.gif", "Faces/two.gif", "Faces/one.gif"];
+
+		let img = document.getElementsByTagName("img");
+
+		for (let i = 0; i < faceArray.length - 1; i++) {
+			img[i].src = faceArray[i];
+		}
+
+		function rollReset() {
+			dice.className = "nonAnimate";
+		}
+
+		function randOrder(array) {
+		let temp;
+		for (let i = array.length -1; i > 0; i--) {
+			let rand = Math.floor(Math.random() * (i - 1));
+			temp = array[i];
+			array[i] = array[rand];
+			array[rand] = temp;
+			}
+		return array;	
+		}
+
+		let changeFaces = () => {
+			let shuffledFaceArr = randOrder(faceArray);
+
+			for(let i = 0; i < faceArray.length - 1; i++) {
+				img[i].src = shuffledFaceArr[i];
+			}
+		}
+
+		function roll() {
+			let dice = document.getElementById("dice");
+			console.log("success");
+			dice.className = "animate";
+			setTimeout(rollReset, 1001);//should set the animation time in javascript as well
+			setTimeout(changeFaces, 50);
+		}
+
+
+	</script>
+</body>
+</html>
